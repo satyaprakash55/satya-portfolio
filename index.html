@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Satya Prakash | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    :root {
+      --bg-light: #caf0f8;
+      --bg-dark: #1a1a1a;
+      --text-light: #333;
+      --text-dark: #fff;
+      --link-light: #0077b6;
+      --link-dark: #00b4d8;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--bg-dark);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    header nav a, .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #00b4d8;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .social-links a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #00b4d8;
+      border: 1px solid #00b4d8;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #00b4d8;
+      color: white;
+    }
+
+    .main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 90vh;
+      padding: 2rem;
+      background: var(--bg-light);
+      flex-wrap: wrap;
+    }
+
+    .left {
+      flex: 1;
+      text-align: center;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translatey(0px); }
+      50% { transform: translatey(-10px); }
+      100% { transform: translatey(0px); }
+    }
+
+    .left img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+    }
+
+    .right {
+      flex: 2;
+      padding-left: 3rem;
+    }
+
+    .right h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .typing-text {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #0077b6;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid;
+      animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: black; }
+    }
+
+    .contact-btn {
+      background-color: #00b4d8;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-btn:hover {
+      background-color: #0077b6;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 2rem;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #0077b6;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      margin-top: 1rem;
+      background-color: #00b4d8;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #0077b6;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+        padding: 1rem;
+        background: var(--bg-light);
+      }
+      .right {
+        padding: 1rem 0 0 0;
+      }
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    body.dark-mode header {
+      background-color: var(--bg-light);
+    }
+
+    body.dark-mode .nav-links a, body.dark-mode .social-links a {
+      color: var(--link-dark);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-links">
+    <a href="#about">About Me</a>
+    <a href="#projects">Research Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="#download-resume">Download Resume</a>
+  </div>
+  <div class="social-links">
+    <a href="https://linkedin.com/in/satyaprakash2025" target="_blank">LinkedIn</a>
+    <a href="https://github.com/satyaprakash2025" target="_blank">GitHub</a>
+    <a href="https://instagram.com/saket_chaudhary123/?__pwa=1" target="_blank">Instagram</a>
+  </div>
+  <button onclick="toggleTheme()" style="background: none; border: none; color: white; font-size: 1rem;">Toggle Theme</button>
+</header>
+
+<section class="main">
+  <div class="left">
+
+    <img src="https://drive.google.com/thumbnail?id=1WgQ-Dct7HTGwasMwO7EzKVM7f24FVqzC" alt="Satya Prakash" />
+  </div>
+  <div class="right">
+    <h1>My name is Satya Prakash</h1>
+    <div class="typing-text">I am a Cybersecurity Student at LPU.</div>
+    <p>Passionate about Web Security, Development and Research. Explore my projects and feel free to connect!</p>
+    <a href="#contact" class="contact-btn">Contact Me</a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>I'm Satya Prakash, a passionate cybersecurity student with a strong interest in secure web applications, ethical hacking, and new-age tech innovations. Learning never stops for me and I love building cool and secure stuff!</p>
+</section>
+
+<!-- Research Projects Section -->
+<section id="projects">
+  <h2>Research Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <a href="https://github.com/satyaprakash2025/security-testing" target="_blank">Security Testing Automation</a>
+    </div>
+    <div class="project-card">
+      <a href="https://github.com/satyaprakash2025/blockchain-voting" target="_blank">Blockchain Secure Voting</a>
+    </div>
+    <div class="project-card">
+      <a href="https://github.com/satyaprakash2025/crypto-data" target="_blank">Cryptographic Data Transmission</a>
+    </div>
+  </div>
+</section>
+
+<!-- Download Resume Section -->
+<section id="download-resume">
+  <h2>Download My Resumes</h2>
+
+  <!-- General CV -->
+  <h3>General CV</h3>
+  <div class="resume-options">
+    <a href="https://drive.google.com/file/d/1bqtTPPL96N2TbT-cK60HF7f-CJaBX59l/view?usp=sharing" target="_blank" class="contact-btn">Download PDF</a>
+    <a href="https://docs.google.com/document/d/158zej5y4W5fxmNBXWLMi-uisJVzlIG9X/edit?usp=sharing&ouid=109729888461044879588&rtpof=true&sd=true" target="_blank" class="contact-btn">Download DOC</a>
+  </div>
+
+  <!-- Specialized CV -->
+  <h3>Specialized CV</h3>
+  <div class="resume-options">
+    <a href="https://drive.google.com/file/d/1Fd2A_-YHH8CmI-9sTjhM16_lWAJtgZct/view?usp=sharing" target="_blank" class="contact-btn">Download PDF</a>
+    <a href="https://docs.google.com/document/d/1wfU8YvTOqRJ9Pa0hrnFkgWTaP0cnX6wp/edit?usp=sharing&ouid=109729888461044879588&rtpof=true&sd=true" target="_blank" class="contact-btn">Download DOC</a>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form class="contact-form" action="https://formsubmit.co/your-email@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<script>
+  ScrollReveal().reveal('.left', { delay: 200, origin: 'left', distance: '50px' });
+  ScrollReveal().reveal('.right', { delay: 400, origin: 'right', distance: '50px' });
+  ScrollReveal().reveal('#about, #projects, #contact', { delay: 300, distance: '40px', origin: 'bottom' });
+
+  // Toggle Dark Mode
+  function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+  }
+</script>
+
+</body>
+</html>
